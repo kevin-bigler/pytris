@@ -17,3 +17,6 @@
 # timing
 # - loop
 # - interval for "gravity" effect
+
+def tick(screen):
+    pass
