@@ -1,14 +1,19 @@
-def say_hello(name='fred'):
-    print('hello', name)
+"""Tetris"""
 
-def say_bye(name, suffix):
-    print('bye', name, suffix or '...')
+# draw GUI
+# - layout
+#   - board
+#     - grid of squares
+#   - hud
+#     - score, time, level
+#     - next piece(s) indicator
 
-say_hello()
-say_hello('joe')
-say_hello(name='bob')
+# track state
+# - board
+# - level, time, score
+# - current piece (shape, location)
+# - next pieces
 
-say_bye('bob', 'jr')
-# say_bye(suffix='senior', 'bob')
-say_bye(suffix='II', name='bob')
-say_bye('bobo', suffix='VI')
+# timing
+# - loop
+# - interval for "gravity" effect
