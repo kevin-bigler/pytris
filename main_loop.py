@@ -15,8 +15,6 @@ def loop(tick):
     screen = pygame.display.set_mode((screen_width, screen_height))
     pygame.display.set_caption('Tetris!')
 
-    # ball = pygame.Rect((0, 0), (10, 10))
-
     while True:
         # Handle input
         for event in pygame.event.get():
@@ -27,7 +25,6 @@ def loop(tick):
         # Visuals
         screen.fill(bg_color)
         tick(screen)
-        # pygame.draw.rect(screen, light_grey, paddle)
 
         # Updating the window
         pygame.display.flip()
