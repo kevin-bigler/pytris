@@ -18,5 +18,8 @@
 # - loop
 # - interval for "gravity" effect
 
+from main_loop import loop
+
 def tick(screen):
     pass
+
