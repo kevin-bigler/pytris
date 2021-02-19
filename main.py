@@ -20,15 +20,33 @@
 
 import pygame
 from main_loop import loop
+from grid import Grid
 
 light_grey = (200, 200, 200)
-square = pygame.Rect((0, 0), (10, 10))
+squareRect = pygame.Rect((0, 0), (10, 10))
+
+
+def square():
+    return {
+        'occupied': False,
+        'rect': pygame.Rect((0, 0), (10, 10))
+    }
+
+width = 5
+height = 8
+board = Grid(5, 8, initFn=square)
+# board.debug_print()
+for i in range(width):
+    for j in range(height):
+        board(i, j)['rect'] # TODO create the rect at the right coords
+
 
 def tick(screen):
-    print('tick')
-    square.left += 1
-    square.top += 2
-    pygame.draw.rect(screen, light_grey, square)
+    pass
+    # print('tick')
+    # pygame.draw.rect(screen, light_grey, squareRect)
+
+
 
 loop(tick)
 
