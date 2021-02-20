@@ -13,13 +13,25 @@ class Grid:
 
         def get_row():
             return [initFn() for i in range(width)]
-        self.arr = [get_row() for i in range(height)]
+        self.arr = [get_row() for j in range(height)]
 
     def __call__(self, x, y):
         return self.arr[y][x]
 
     def debug_print(self):
         print('grid width x height =', len(self.arr[0]), 'x', len(self.arr))
+
+    def __iter__(self):
+        """Each element is returned as a tuple of (val, pos), as in (val, (x, y))"""
+        for y in range(self.height):
+            for x in range(self.width):
+                yield (self.arr[y][x], (x, y))
+
+    def vals(self):
+        """Iterator for grid values"""
+        for y in range(self.height):
+            for x in range(self.width):
+                yield self.arr[y][x]
 
 # # g = Grid(3, 5, lambda : {'foo': 'bar'})
 # g = Grid(3, 5)
