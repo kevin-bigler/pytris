@@ -24,10 +24,10 @@ class Square():
     def __repr__(self):
         return 'X' if self.occupied is True else 'O'
     
-b = TetrisBoard(10, 15)
-b.grid(9, 14).occupied = True
-print(b.grid.width, b.grid.height)
-for (val, (x, y)) in b.grid:
-    print(type(val), x, y)
-    print(val)
-    print('is ', x, y, 'occupied?', b.occupied(x, y))
+# b = TetrisBoard(10, 15)
+# b.grid(9, 14).occupied = True
+# print(b.grid.width, b.grid.height)
+# for (val, (x, y)) in b.grid:
+#     print(type(val), x, y)
+#     print(val)
+#     print('is ', x, y, 'occupied?', b.occupied(x, y))

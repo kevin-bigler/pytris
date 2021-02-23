@@ -25,13 +25,7 @@ from grid import Grid
 light_grey = (200, 200, 200)
 squareRect = pygame.Rect((0, 0), (10, 10))
 
-square_width = 10
-square_height = 10
-def square():
-    return {
-        'occupied': False,
-        'rect': pygame.Rect((0, 0), (square_width, square_height))
-    }
+
 
 board_width = 5
 board_height = 8
