@@ -16,6 +16,7 @@ def draw_rect_test(screen):
     width, height = 20, 40
     box = boarder_rect(width, height, pygame.Color('red'))
     screen.blit(box, (5, 5))
+    screen.blit(box, (50, 50))
 
 
 
