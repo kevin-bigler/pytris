@@ -1,20 +1,13 @@
 import pygame, sys
 
-screen_width = 200
-screen_height = 400
-bg_color = pygame.Color('grey12')
-
 class GameLoop:
-    def __init__(self, screen):
+    def __init__(self, fps=60):
         self.running = False
-        
+        self.fps = fps
         pygame.init()
-        self.screen = pygame.display.set_mode((screen_width, screen_height))
-        pygame.display.set_caption('Tetris!')
         self.clock = pygame.time.Clock()
 
-
-    def loop(self, tick):
+    def start(self, tick):
         """
         Args
             tick - fn that is called on each loop iteration (frame), called like tick(screen)
@@ -22,16 +15,18 @@ class GameLoop:
         self.running = True
 
         while self.running:
-            # Handle input
+            # Handle exit-input
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
 
-            # Visuals
-            self.screen.fill(bg_color)
-            tick(self.screen)
+            # Game Tick
+            tick(self.clock)
 
             # Updating the window
             pygame.display.update()
-            self.clock.tick(60)
+            self.clock.tick(self.fps)
+
+    def stop():
+        self.running = False
