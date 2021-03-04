@@ -15,13 +15,12 @@ class TetrisBoard:
         self._grid = Grid(width, height, Square)
         
         self.surface = pygame.Surface((width * square_width, height * square_height))
-        self.surface.fill(square_color)
 
         for sq, (x, y) in self.grid:
             sq.rect.left = x * square_width
             sq.rect.top = y * square_height
 
-        self.draw(self.surface)
+        # self.draw(self.surface)
 
     @property
     def grid(self):
@@ -37,18 +36,31 @@ class TetrisBoard:
         return self.grid(x, y).occupied is True
 
     def draw(self, screen):
-        print('screen:', screen)
+        screen.blit(self.surface, (0, 0))
+        self.surface.fill(square_color)
         for sq, (x, y) in self.grid:
-            pygame.draw.rect(screen, pygame.Color('black'), sq.rect, square_border_width)
+            sq.draw(self.surface)
 
+    def occupy(self, x, y):
+        self.grid(x, y).occupied = True
 
 class Square():
     def __init__(self):
-        self.occupied = False,
+        self.occupied = False
+        self.surface = pygame.Surface((square_width, square_height))
         self.rect = pygame.Rect((0, 0), (square_width, square_height))
+
+        # pygame.draw.rect(self.surface, pygame.Color('red'), sq.rect, square_border_width)
 
     def __repr__(self):
         return 'X' if self.occupied is True else 'O'
+
+    def draw(self, surface):
+        fill_color = pygame.Color('black') if sq.occupied else square_color
+        pygame.draw.rect(self.surface, pygame.Color('black'), sq.rect, square_border_width)
+        
+        self.surface.fill(fill_color)
+        surface.blit(self.surface)
     
 # b = TetrisBoard(10, 15)
 # b.grid(9, 14).occupied = True

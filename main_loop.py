@@ -3,17 +3,10 @@ import pygame, sys
 def loop(tick):
     """
     Args
-        tick - fn that is called on each loop iteration (frame), called like tick(screen)
+        tick - fn that is called on each loop iteration (frame)
     """
-    screen_width = 200
-    screen_height = 400
-    bg_color = pygame.Color('grey12')
-
     pygame.init()
     clock = pygame.time.Clock()
-
-    screen = pygame.display.set_mode((screen_width, screen_height))
-    pygame.display.set_caption('Tetris!')
 
     while True:
         # Handle input
@@ -23,9 +16,8 @@ def loop(tick):
                 sys.exit()
 
         # Visuals
-        screen.fill(bg_color)
-        tick(screen)
+        tick(clock)
 
         # Updating the window
-        pygame.display.flip()
+        pygame.display.update()
         clock.tick(60)
