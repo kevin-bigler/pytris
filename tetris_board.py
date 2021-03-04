@@ -47,10 +47,7 @@ class TetrisBoard:
 class Square():
     def __init__(self):
         self.occupied = False
-        self.surface = pygame.Surface((square_width, square_height))
-        self.rect = pygame.Rect((0, 0), (square_width, square_height))
-
-        # pygame.draw.rect(self.surface, pygame.Color('red'), sq.rect, square_border_width)
+        self.position = (0, 0)
 
     def __repr__(self):
         return 'X' if self.occupied is True else 'O'
