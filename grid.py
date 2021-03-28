@@ -6,14 +6,14 @@ class Grid:
         Args:
             width
             height
-            initFn - invoked to initialize each grid item's value. default is empty map
+            initFn - invoked to initialize each grid item's value, ie initFn(x, y). default is empty map
         """
         self.width = width
         self.height = height
 
-        def get_row():
-            return [initFn() for i in range(width)]
-        self.arr = [get_row() for j in range(height)]
+        def get_row(y):
+            return [initFn(x, y) for x in range(width)]
+        self.arr = [get_row(y) for y in range(height)]
 
     def __call__(self, x, y):
         return self.arr[y][x]
