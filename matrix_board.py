@@ -1,6 +1,6 @@
 from pygame.math import Vector2
 from grid import Grid
-
+import numpy
 
 class MatrixBoard:
     """Tetris Matrix, ie playing area where tetrominoes appear"""
@@ -10,7 +10,7 @@ class MatrixBoard:
 
     def as_binary_matrix(self):
         """Matrix of the entire board as binary values, 1 indicating occupied and 0 indicating open spaces.
-        returns Grid"""
+        returns numpy.ndarray"""
         pass
 
     def as_pos_list(self):
@@ -20,5 +20,5 @@ class MatrixBoard:
 
     def as_style_matrix(self):
         """Matrix of the entire board in terms of each square's style value (color/pattern/whatever).
-        returns Grid"""
+        returns numpy.ndarray"""
         pass
